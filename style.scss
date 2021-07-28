@@ -1,0 +1,164 @@
+/*colors*/
+$dark:#000000;
+$white:#ffffff;
+$superlight:#f2f2f2;
+$lightgray:#afafaf;
+$danger:#a51c0a;
+$lightdanger:#ac5a5a;
+
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+
+/*for all*/
+*{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: $dark;
+  padding:0px;
+  margin:0px;
+}
+
+/*grid flex*/
+.wrapper {
+  display: flex;
+  align-items:stretch;
+  border: 5px solid $danger;
+  background: $lightgray;
+  width: 96vw;
+  height: 100vh;
+  margin:0px;
+  padding:0px;
+}
+
+/*players*/ 
+.player1, .player2, .middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  width: 50vw;
+  border:1px solid $dark;
+  & .p1, .p2 {
+    font-weight: 300;
+    font-size: 5vw;
+    }
+    & h2{
+      font-weight: 300;
+      }
+      & .globScore{
+        color:$dark;
+        font-size:10vw;
+        font-weight:200;
+        color:$danger;
+        }
+        & .current{
+          border: 2px solid $dark;
+          border-radius: 4px;
+          background: $lightdanger;
+          width: 100px;
+          height: 70px;
+          }
+          & h3{
+            font-size: 3vw;
+            font-weight: 300;
+            color: $white;
+            }
+            & p {
+              font-size:7vw;
+              font-weight: 300;
+              color:$white;
+              }
+}
+
+/*dice & button*/ 
+.dice {
+  margin:5px;
+  .actionGame {
+    display:flex;
+    position:absolute;
+    }
+    img {
+      background-size:contain;
+      display:flex;
+      width:110px;
+      height:110px;
+      }
+      .actionRoll {
+        justify-content:center;
+        }
+        .actionHold {
+          justify-content: center;
+          }
+}
+
+/*modal*/ 
+.modals {
+  display:flex;
+  position:absolute;
+  margin:10px;
+  padding:10px;
+  border:2px solid $lightdanger;
+  border-radius:10px;
+  background:$superlight;
+    &_title {
+      font-weight: 400;
+      }
+      &_body {
+        margin:10px;
+        font-size:1em;
+      }
+}
+.modals:target {
+  visibility:visible;
+  opacity:1;
+}
+
+
+
+
+
+/*media queries*/
+.instructionPhone{
+  display: none;
+}
+@media only screen and (orientation:portrait) {
+  .phone, .message {
+    display: block;
+   }
+  .instructionPhone {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:$dark;
+  }
+  .phone {
+    height:50px;
+    width:100px;
+    border: 5px solid $lightdanger;
+    border-radius:5px;
+    /*animation: rotate 2s ease-in-out infinite alternate;*/
+  }
+  .message {
+    color:$white;
+    font-size:1em;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+/*Keyframes*/
+@keyframes rotate {
+0% {
+  transform: rotate(-90deg);
+}
+100% {
+  transform: rotate(0deg);
+}
+}

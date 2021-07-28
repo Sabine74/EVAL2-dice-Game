@@ -1,0 +1,209 @@
+/*colors*/
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+/*for all*/
+* {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*grid flex*/
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border: 5px solid #a51c0a;
+  background: #afafaf;
+  width: 96vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+/*players*/
+.player1, .player2, .middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  border: 1px solid #000000;
+}
+
+.player1 .p1, .player1 .p2, .player2 .p1, .player2 .p2, .middle .p1, .middle .p2 {
+  font-weight: 300;
+  font-size: 5vw;
+}
+
+.player1 h2, .player2 h2, .middle h2 {
+  font-weight: 300;
+}
+
+.player1 .globScore, .player2 .globScore, .middle .globScore {
+  color: #000000;
+  font-size: 10vw;
+  font-weight: 200;
+  color: #a51c0a;
+}
+
+.player1 .current, .player2 .current, .middle .current {
+  border: 2px solid #000000;
+  border-radius: 4px;
+  background: #ac5a5a;
+  width: 100px;
+  height: 70px;
+}
+
+.player1 h3, .player2 h3, .middle h3 {
+  font-size: 3vw;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.player1 p, .player2 p, .middle p {
+  font-size: 7vw;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+/*dice & button*/
+.dice {
+  margin: 5px;
+}
+
+.dice .actionGame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+}
+
+.dice img {
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 110px;
+  height: 110px;
+}
+
+.dice .actionRoll {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dice .actionHold {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*modal*/
+.modals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #ac5a5a;
+  border-radius: 10px;
+  background: #f2f2f2;
+}
+
+.modals_title {
+  font-weight: 400;
+}
+
+.modals_body {
+  margin: 10px;
+  font-size: 1em;
+}
+
+.modals:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*media queries*/
+.instructionPhone {
+  display: none;
+}
+
+@media only screen and (orientation: portrait) {
+  .phone, .message {
+    display: block;
+  }
+  .instructionPhone {
+    padding-top: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #000000;
+  }
+  .phone {
+    height: 50px;
+    width: 100px;
+    border: 5px solid #ac5a5a;
+    border-radius: 5px;
+    /*animation: rotate 2s ease-in-out infinite alternate;*/
+  }
+  .message {
+    color: #ffffff;
+    font-size: 1em;
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+/*Keyframes*/
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

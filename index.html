@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--METAS-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dice-Game" />
+
+  <!--LINK CSS-->
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+  <!--BOOTSTRAP ICONS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <title> Eval 2 : ROLL & HOLD - Dice Game</title>
+</head>
+
+<body class="content">
+
+  <!--PHONE INSTRUCTION-->
+  <header class="instructionPhone">
+    <div class="phone"></div>
+    <div class="message"> Please rotate your phone<br>to play ...</div>
+  </header>
+
+  <!--GAME CONTAIN-->
+  <div class="wrapper">
+
+    <!--PLAYER ONE-->
+    <div id="playerOne" class="player1 player-active">
+      <div class="p1">
+        <h2> PLAYER 1 </h2>
+        <p class="globScore" id="playerOneGlobalScore">0</p>
+      </div>
+      <div class="current">
+        <h3> CURRENT</h3>
+        <p id="playerOneCurrentScore">0</p>
+      </div>
+    </div>
+
+    <!--BUTTONS & DICE-->
+    <div class="middle">
+
+      <!--btn NEW GAME-->
+      <div class="actionGame">
+        <button type="button" class="btn btn-outline-light" id="newGame"> <i class="bi bi-plus-circle"></i> NEW GAME</button>
+      </div>
+      <!--dice-->
+      <div class="dice">
+        <img id="face" src="images/face3.svg" height="110px" width="110px" alt="face dice">
+      </div>
+      <!--btn ROLL & btn HOLD-->
+      <div class="actionRoll">
+        <button type="button" class="btn btn-outline-light" id="rDice"> <i class="bi bi-arrow-repeat"></i> ROLL DICE</button>
+      </div>
+      <div class="actionHold">
+        <button type="button" class="btn btn-outline-light" id="hDice"> <i class="bi bi-file-arrow-down"></i> HOLD DICE</button>
+      </div>
+    </div>
+
+    <!--PLAYER 2-->
+    <div id="playerTwo" class="player2">
+      <div class="p2">
+        <h2> PLAYER 2 </h2>
+        <p class="globScore" id="playerTwoGlobalScore">0</p>
+      </div>
+      <div class="current">
+        <h3> CURRENT</h3>
+        <p id="playerTwoCurrentScore">0</p>
+      </div>
+    </div>
+
+  </div>
+
+
+    <!--RULES-->
+      <button type="button" data-bs-target class="modals_btn btn btn-outline-info"><i class="bi bi-info-square"></i></button>
+    
+    <!--MODALS-->
+    <div class="modals">
+
+    <!--modal rules-->
+    <div class="modals_header">
+      <h4 class="modals_title"> ROLL & HOLD</h4>
+      
+    </div>
+    <div class="modals_body">
+      <p>The rules : </p>
+      <p>The first player to hold 100 points in his global score wins!</p>
+      <p>To do so, roll the dice. You can roll it as many times as you want.
+        The result adds up in your current score. <br>However, if you roll the dice
+        and obtain 1, your current score is lost, and it's the end of your turn.<br>
+        If you are happy with your current score, you can hold it by clicking the
+        'Hold' button, to add it to your global score, and it's the end of your
+        turn.</p>
+      <p><strong> Good luck and have fun !!!</strong></p>
+    </div>
+  </div>
+ 
+  <!--WIN & GAME END-->
+  
+  <div id="win" class="winModal" hidden>
+    <div class="modalContent">
+      <div class="modalHeader">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <p>!!! Congratulation !!!</p>
+      </div>
+      <div class="modalBody">
+        <p> The winner is <span id="winner"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!--JAVASCRIPT-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+    crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous">
+  </script>
+  <script src="app.js"></script>
+
+</body>
+</html>
