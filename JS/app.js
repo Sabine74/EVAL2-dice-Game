@@ -9,7 +9,7 @@ const roll = document.getElementById('btnRoll');
 const hold = document.getElementById('btnHold');
 const newGame = document.getElementById('btnNewGame');
 
-let global1 = document.getElementsById('score-1');
+let global1 = document.getElementById('score-1');
 let global2 = document.getElementById('score-2');
 let result = document.getElementById('result');
 let current1 = document.getElementById('current-1');
