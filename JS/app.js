@@ -1,55 +1,86 @@
-/*//variables//
-const faces = ["images/face1.svg", "images/face2.svg", "images/face3.svg", "images/face4.svg", "images/face5.svg", "images/face6.svg"];
-let faceValue = 0;
+//VARIABLES//
+let activePlayer = 'player1';
+let diceValue;
+const faces = ['1.svg','2.svg','3.svg','4.svg','5.svg','6.svg'];
+
+//DOM//
+const face = document.getElementById('face');
+const roll = document.getElementById('btnRoll');
+const hold = document.getElementById('btnHold');
+const newGame = document.getElementById('btnNewGame');
+
+let global1 = document.getElementsById('score-1');
+let global2 = document.getElementById('score-2');
+let result = document.getElementById('result');
+let current1 = document.getElementById('current-1');
+let current2 = document.getElementById('current-2');
 
 
-//players//
-const player1 = document.getElementById('playerOne');
-const player2 = document.getElementById('playerTwo');
-let activePlayer = player1;
-
-//selecors//
-let globalPlay2 = document.getElementById('playerTwoGlobalScore');
-let globalPlay1 = document.getElementById('playerOneGlobalScore');
-let currentPlay1 = document.getElementById('playerOneCurrentScore');
-let currentPlay2 = document.getElementById('playerTwoGlobalScore');
-
-const btnNewGame = document.getElementById('newGame');
-const btnRoll = document.getElementById('rDice');
-const btnHold = document.getElementById('hDice');
-const winModal = document.getElementById('win');
-
-//eventlistener//
-
-btnNewGame.addEventListener('click', () => newGame());
-btnRoll.addEventListener('click', () => Roll());
-btnHold.addEventListener('click', () => Hold());
-
-//close modal//
-
-
-//functions//
-//change dice//
+//FUNCTIONS//
+//btn ROLL//
 const rollDice = () => {
-  diceValue = Math.floor(Math.random() * (6)) + 1;
-  diceFace.src = './public/images/faces/'+ face[diceValue-1];
-  if (diceValue == 1){
-      currentScore.innerHTML = 0;
-      current = 0;
-      nextPlayer();
-  } else {
-      current += diceValue;
-      currentScore.innerHTML = current;
-  }
+  diceValue = Math.floor(Math.random() * 6) +1;
+  face.src ='images/faces/' + faces[diceValue -1];
+    if (diceValue == 1) {
+      if (activePlayer == player1) {
+        current1.textContent = 0;
+      } else {
+        current2.textContent = 0;
+      }
+      otherPlayer();
+    } else {
+      if (activePlayer == player1) {
+        current1.textContent = parseInt(current1.textContent) + diceValue;
+      } else {
+        current2.textContent = parseInt(current2.textContent) + diceValue;
+      }
+    }
 }
 
 
-//restart Game//
-const newGame = () => {
-  element('playerOneGlobalScore').innerHTML = 0;
-  element('playerOneCurrentScore').innerHTML = 0;
-  element('playerTwoGlobalScore').innerHTML = 0;
-  element('playerTwoCurrentScore').innerHTML = 0;
-  global = 0;
-  current = 0;
-}*/
+//change player//
+const otherPlayer = () => {
+  activePlayer.classList.remove("player-active");
+  activePlayer.classList.add("non-active");
+  activePlayer = (activePlayer == player1) ? player2 : player1;
+  activePlayer.classList.remove("non-active");
+  activePlayer.classList.add("player-active");
+}
+
+//btn HOLD//
+const holdDice = () => {
+  if (activePlayer == player1) {
+    global1.textContent = parseInt(global1.textContent) + parseInt(current1.textContent);
+    current1.textContent = 0;
+    global1.textContent >= 100 ? endGame() : otherPlayer();
+  } else {
+    global2.textContent = parseInt(global2.textContent) + parseInt(current2.textContent);
+    current2.textContent = 0;
+    global2.textContent >= 100 ? endGame() : otherPlayer();
+  }
+}
+hold.addEventListener('click',holdDice);
+
+//end Game//
+const endGame = () => {
+  activePlayer = (activePlayer == player1) ? player2 : player1;
+  result.innerHTML = "<h2>"+ (activePlayer == player1 ? player1.id : player2.id) +"WIN</h2>";
+}
+
+//new game//
+const startGame = () => {
+  if (confirm("new game?") == true) {
+    global1.textContent = "0";
+    global2.textContent = "0";
+    current1.textContent = "0";
+    current2.textContent = "0";
+      if (activePlayer = player2) {
+        otherPlayer();
+      }
+  }
+}
+
+//EVENTS//
+newGame.addEventListener('click', () => startGame());
+roll.addEventListener('click', () => rollDice());
+hold.addEventListener('click', () => holdDice());

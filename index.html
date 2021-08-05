@@ -6,91 +6,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dice-Game" />
+  <meta name="description" content="Dice Game Roll & Hold">
+  <!--CSS-->
+  <link rel="stylesheet" href="styles/style.css" type="text/css">
+  <!--IONIC ICONS-->
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
 
-  <!--LINK CSS-->
-  <link rel="stylesheet" href="style.css" type="text/css">
-
-  <!--BOOTSTRAP ICONS-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
-  <title> Eval 2 : ROLL & HOLD - Dice Game</title>
+  <title>Eval 2 : Roll & Hold - Dice Game</title>
 </head>
 
-<body class="content">
-
+<body>
   <!--PHONE INSTRUCTION-->
   <header class="instructionPhone">
     <div class="phone"></div>
-    <div class="message"> Please rotate your phone<br>to play ...</div>
+    <div class="message">Please, rotate your phone<br>to begin to play...</div>
   </header>
 
+  <div id="result"></div>
+
   <!--GAME CONTAIN-->
-  <div class="wrapper">
-
-    <!--PLAYER ONE-->
-    <div id="playerOne" name="PLAYER1" class="player player-active">
-      <div class="p1">
-        <h2> PLAYER 1 </h2>
-        <p class="globScore" id="playerOneGlobalScore">0</p>
-      </div>
-      <div class="current">
-        <h3> CURRENT</h3>
-        <p id="playerOneCurrentScore">0</p>
-      </div>
-    </div>
-
-    <!--BUTTONS & DICE-->
-    <div class="middle">
-
-      <!--btn NEW GAME-->
-      <div class="actionGame">
-        <button type="button" class="btn" id="newGame">
-          <i class="bi bi-plus-circle"></i> NEW GAME
-        </button>
-      </div>
-      <!--dice faces-->
-      <div class="dice">
-        <img id="face" src="images/face3.svg" height="110px" width="110px" alt="faces dice">
-      </div>
-      <!--btn ROLL & btn HOLD-->
-      <div class="actionRoll">
-        <button type="button" class="btn" id="rDice">
-          <i class="bi bi-arrow-repeat"></i> ROLL DICE</button>
-      </div>
-      <div class="actionHold">
-        <button type="button" class="btn" id="hDice">
-          <i class="bi bi-file-arrow-down"></i> HOLD DICE</button>
-      </div>
-    </div>
+  <main class="wrapper contain">
+    <!--PLAYER 1-->
+    <section class="player-active" id="player1" >
+      <h2 class="player_name">PLAYER 1</h2>
+        <p class="player_score" id="score-1">0</p>
+          <div class="player_current_box">
+            <div class="player_current_label">CURRENT</div>
+              <div class="player_current_score" id="current-1">0</div>
+          </div>
+    </section>
 
     <!--PLAYER 2-->
-    <div id="playerTwo" name="PLAYER2" class="player">
-      <div class="p2">
-        <h2> PLAYER 2 </h2>
-        <p class="globScore" id="playerTwoGlobalScore">0</p>
-      </div>
-      <div class="current">
-        <h3> CURRENT</h3>
-        <p id="playerTwoCurrentScore">0</p>
-      </div>
-    </div>
-  
-  <!--btn open modal-->
-  <a href="#info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-    class="bi bi-info-square" viewBox="0 0 16 16">
-    <path
-      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-    <path
-      d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-  </svg></a>
-</div><!--close wrapper-->
+    <section class="non-active" id="player2" >
+      <h2 class="player_name">PLAYER 2</h2>
+        <p class="player_score" id="score-2">0</p>
+          <div class="player_current_box">
+            <div class="player_current_label">CURRENT</div>
+              <div class="player_current_score" id="current-2">0</div>
+          </div>
+    </section>
 
-  <!--MODAL-->
-  
+    <!--BUTTONS & DICE-->
+    <button class="btn-new" id="btnNewGame"><i class="ion-ios-plus-outline"></i> NEW GAME</button>
+    <button class="btn-roll" id="btnRoll"><i class="ion-ios-loop"></i> ROLL DICE</button>
+    <button class="btn-hold" id="btnHold"><i class="ion-ios-download-outline"></i> HOLD </button>
 
-  <!--MODAL rules-->
-  <div id="info" class="modal">
+    <img src="images/faces/1.svg" id="face" height="110px" width="110px" alt="face dice" class="dice">
+
+    <!--MODAL-->
+    <a href="#info">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square"
+        viewBox="0 0 16 16">
+        <path
+          d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+        <path
+          d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+      </svg>
+    </a>
+
+  </main>
+
+  <div class="modal" id="info" >
     <div class="modal_content">
       <h1>ROLL & HOLD</h1>
       <h2>The rules</h2><br>
@@ -102,18 +78,16 @@
         'Hold' button, to add it to your global score, and it's the end of your turn.</p><br>
       <h3> Good luck and have fun !!!</h3>
 
-      <!--btn close modal-->
       <a href="#" class="modal_close">&times;</a>
     </div>
   </div>
 
 
   <!--JAVASCRIPT-->
-  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
-  <script src="app.js"></script>
+  <script src="JS/app.js"></script>
 
 </body>
 
