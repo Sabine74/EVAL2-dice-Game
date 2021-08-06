@@ -9,6 +9,10 @@
           box-sizing: border-box;
 }
 
+#result {
+  color: #a51c0a;
+}
+
 .contain::after {
   content: "";
   display: table;
@@ -299,6 +303,124 @@ a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-height: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 14px;
+  }
+  .contain::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  body {
+    background-size: cover;
+    background-position: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    position: relative;
+    height: 100vh;
+    color: #a5a5a5;
+  }
+  .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  /*PLAYERS*/
+  .player-active {
+    width: 50vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .non-active {
+    width: 50vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .player_name {
+    font-size: 35px;
+    color: #000000;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .player_score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    color: #ac5a5a;
+    margin-bottom: 90px;
+  }
+  .player-active {
+    background-color: #a5a5a5;
+  }
+  .player-active .player_name {
+    font-weight: 300;
+  }
+  .player-active .player_name::after {
+    /*content: "\2022";*/
+    font-size: 47px;
+    position: absolute;
+    color: #ac5a5a;
+    top: -7px;
+    right: 10px;
+  }
+  .player_current_box {
+    background: #ac5a5a;
+    color: #ffffff;
+    max-width: 150px;
+    border-radius: 5px;
+    min-width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .player_current_label {
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #ffffff;
+  }
+  .player_current_score {
+    font-size: 20px;
+  }
+  .btn-new {
+    top: 110px;
+  }
+  .btn-roll {
+    top: 290px;
+  }
+  .btn-hold {
+    top: 320px;
   }
 }
 

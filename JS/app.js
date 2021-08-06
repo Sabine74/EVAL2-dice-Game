@@ -1,5 +1,4 @@
 //VARIABLES//
-let activePlayer = 'player1';
 let diceValue;
 const faces = ['1.svg','2.svg','3.svg','4.svg','5.svg','6.svg'];
 
@@ -9,12 +8,15 @@ const roll = document.getElementById('btnRoll');
 const hold = document.getElementById('btnHold');
 const newGame = document.getElementById('btnNewGame');
 
-let global1 = document.getElementsById('score-1');
+let global1 = document.getElementById('score-1');
 let global2 = document.getElementById('score-2');
 let result = document.getElementById('result');
 let current1 = document.getElementById('current-1');
 let current2 = document.getElementById('current-2');
 
+let player1 = document.getElementById('player1');
+let player2 = document.getElementById('player2');
+let activePlayer = player1;
 
 //FUNCTIONS//
 //btn ROLL//
@@ -37,7 +39,6 @@ const rollDice = () => {
     }
 }
 
-
 //change player//
 const otherPlayer = () => {
   activePlayer.classList.remove("player-active");
@@ -52,29 +53,31 @@ const holdDice = () => {
   if (activePlayer == player1) {
     global1.textContent = parseInt(global1.textContent) + parseInt(current1.textContent);
     current1.textContent = 0;
-    global1.textContent >= 100 ? endGame() : otherPlayer();
+    global1.textContent >= 10 ? endGame() : otherPlayer();
   } else {
     global2.textContent = parseInt(global2.textContent) + parseInt(current2.textContent);
     current2.textContent = 0;
-    global2.textContent >= 100 ? endGame() : otherPlayer();
+    global2.textContent >= 10 ? endGame() : otherPlayer();
   }
 }
-hold.addEventListener('click',holdDice);
+
 
 //end Game//
 const endGame = () => {
-  activePlayer = (activePlayer == player1) ? player2 : player1;
-  result.innerHTML = "<h2>"+ (activePlayer == player1 ? player1.id : player2.id) +"WIN</h2>";
+  activePlayer = (activePlayer == player1) ? player1 : player2;
+  result.innerHTML = "<h2>"+ (activePlayer == player1 ? player1.id : player2.id) +" WIN !!! </h2>";
 }
+
 
 //new game//
 const startGame = () => {
-  if (confirm("new game?") == true) {
+  if (confirm("are you sur to begin a new game ?") == true) {
     global1.textContent = "0";
     global2.textContent = "0";
     current1.textContent = "0";
     current2.textContent = "0";
-      if (activePlayer = player2) {
+    result.textContent = "";
+      if (activePlayer = player1) {
         otherPlayer();
       }
   }
