@@ -53,11 +53,11 @@ const holdDice = () => {
   if (activePlayer == player1) {
     global1.textContent = parseInt(global1.textContent) + parseInt(current1.textContent);
     current1.textContent = 0;
-    global1.textContent >= 10 ? endGame() : otherPlayer();
+    global1.textContent >= 100 ? endGame() : otherPlayer();
   } else {
     global2.textContent = parseInt(global2.textContent) + parseInt(current2.textContent);
     current2.textContent = 0;
-    global2.textContent >= 10 ? endGame() : otherPlayer();
+    global2.textContent >= 100 ? endGame() : otherPlayer();
   }
 }
 
@@ -65,7 +65,7 @@ const holdDice = () => {
 //end Game//
 const endGame = () => {
   activePlayer = (activePlayer == player1) ? player1 : player2;
-  result.innerHTML = "<h2>"+ (activePlayer == player1 ? player1.id : player2.id) +" WIN !!! </h2>";
+  result.innerHTML = "<h1>"+ (activePlayer == player1 ? player1.id : player2.id) +" WIN !!! </h1>";
 }
 
 
